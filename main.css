@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding:0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.todo{
+    background: #969696;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+.puntos{
+    background: #494949;
+    width: fit-content;
+    padding: 10px 20px;
+    margin:10px;
+}
+.puntos_Internos{
+    color:#fff;
+    display:inline-block;
+
+}
+
+.puntos_Totales{
+    color: #fff;
+    display:inline-block;
+}
+.simon_Verde,
+.simon_Azul,
+.simon_Amarillo,
+.simon_Rojo{
+    width: 200px;
+    height: 200px;
+    transition:all ease .3s;
+    margin: 5px;
+}
+
+.simon_Verde:hover,
+.simon_Azul:hover,
+.simon_Amarillo:hover,
+.simon_Rojo:hover {
+    width: 200px;
+    height: 200px;
+    filter: grayscale(.5);
+    transition:all ease .3s;
+    margin: 5px;
+}
+
+.simon_Verde{
+    background: rgb(1, 255, 1);
+    display: inline-block;
+    border-radius:100% 0 0 0;
+}
+.simon_Azul{
+    background: rgb(0, 132, 255);
+    display: inline-block;
+    border-radius:0 100% 0 0;
+}
+.simon_Amarillo{
+    background: yellow;
+    display: inline-block;
+    border-radius:0 0 0 100%;
+}
+.simon_Rojo{
+    background: red;
+    display: inline-block;
+    border-radius:0 0 100% 0;
+}
+.simon{
+    /* background: #000; */
+    width: fit-content;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
