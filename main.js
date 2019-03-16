@@ -10,18 +10,17 @@ setTimeout(() => {
     amarillo = document.getElementById("amarillo");
     rojo = document.getElementById("rojo");
     puntos = document.getElementById("puntos_Totales");
-    console.log(verde)
-
-    
+        
     console.log(colores)
 }, 0);
 
-
 function empezar(id) {
     document.getElementById(id).style.display = "none";
+    document.getElementById("x").className = "x";
     setTimeout(() => {
         random();
     }, 500);
+    
 }
 
 var colores = [];
@@ -36,31 +35,34 @@ function random() {
 console.log(aleatorio);
 
     if (aleatorio == 0) {
-        verde.style.border = "5px solid #fff"
+        verde.style.border = "5px solid #fff";
         setTimeout(() => {
             verde.style.border = null;
         }, 1000);
     }
     if (aleatorio == 1) {
-        azul.style.border = "5px solid #fff"
+        azul.style.border = "5px solid #fff";
         setTimeout(() => {
             azul.style.border = null;
         }, 1000);
     }
     if (aleatorio == 2) {
-        amarillo.style.border = "5px solid #fff"
+        amarillo.style.border = "5px solid #fff";
         setTimeout(() => {
             amarillo.style.border = null;
         }, 1000);
         
     }
     if (aleatorio == 3) {
-        rojo.style.border = "5px solid #fff"-
+        rojo.style.border = "5px solid #fff";
         setTimeout(() => {
             rojo.style.border = null;
         }, 1000);
         
     }
+    setTimeout(() => {
+        document.getElementById("x").className = "";
+    }, 2000);
 
 }
 
@@ -86,6 +88,8 @@ function pregunta(id){
         reiniciar_bucle();
     }else{
         console.log("No es el mismo")
+        puntos.innerHTML = "";
+
     }
 
 }
@@ -94,6 +98,6 @@ function reiniciar_bucle() {
 
     setTimeout(() => {
         random();
-    }, 1500);
+    }, 1000);
     
 }
