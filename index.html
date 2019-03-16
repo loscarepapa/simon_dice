@@ -12,14 +12,17 @@
     <div class="todo">
         <div class="puntos">
             <p class="puntos_Internos">Tus puntos son :</p>
-            <p class="puntos_Totales" id="puntos_Totales">50</p>
+            <p class="puntos_Totales" id="puntos_Totales"></p>
+        </div>
+        <div class="empezar" id="empezar" onclick="empezar(this.id)">
+            Empezar
         </div>
         <div class="simon">
-            <div id="Verde" class="simon_Verde"></div>
-            <div id="Azul" class="simon_Azul"></div>
+            <div id="verde" class="simon_Verde" onclick="pregunta(this.id)"></div>
+            <div id="azul" class="simon_Azul" onclick="pregunta(this.id)"></div>
             <br>
-            <div id="Amarillo" class="simon_Amarillo"></div>
-            <div id="Rojo" class="simon_Rojo"></div>
+            <div id="amarillo" class="simon_Amarillo" onclick="pregunta(this.id)"></div>
+            <div id="rojo" class="simon_Rojo" onclick="pregunta(this.id)"></div>
         </div>
     </div>
 </body>
