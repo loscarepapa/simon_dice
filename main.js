@@ -4,6 +4,7 @@ var verde,
     rojo,
     random,
     serie = [],
+    totalColores = 0,
     numColores = 0;
 
 setTimeout(() => {
@@ -48,4 +49,15 @@ function iniciar(id){
 
 
     }, 1000);
+}
+function prueba(id){
+
+    console.log(id);
+
+    if (id == serie[totalColores]) {
+        console.log("es el mismo")
+    }else{
+        console.log("no es el mismo")
+    }
+
 }
