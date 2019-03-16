@@ -5,7 +5,8 @@ var verde,
     random,
     serie = [],
     totalColores = 0,
-    numColores = 0;
+    numColores = 0,
+    nivel = 0;
 
 setTimeout(() => {
     verde = document.getElementById("Verde"),
@@ -49,15 +50,29 @@ function iniciar(id){
 
 
     }, 1000);
+
+    if(document.getElementById("perdiste").className == "perdiste"){
+        document.getElementById("perdiste").className = "none";
+    }
+
+
 }
+
+
 function prueba(id){
 
     console.log(id);
 
-    if (id == serie[totalColores]) {
-        console.log("es el mismo")
+    if (id == serie[numColores - 1]) {
+        document.getElementById("puntos_Totales").innerHTML = nivel + 1;
+        nivel++;
     }else{
-        console.log("no es el mismo")
+        document.getElementById("iniciar").style.display = "block";
+        document.getElementById("puntos_Totales").innerHTML = "";
+        nivel = 0;
+        document.getElementById("perdiste").className = "perdiste";
+        serie = [];
+        numColores = 0;
     }
 
 }
