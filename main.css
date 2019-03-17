@@ -41,7 +41,7 @@
 .simon_Rojo:hover {
     width: 200px;
     height: 200px;
-    border: 1px solid #fff;
+    filter: grayscale(.5);
     transition:all ease .3s;
     margin: 5px;
 }
@@ -74,24 +74,36 @@
     left:50%;
     transform:translate(-50%,-50%);
 }
-.empezar{
+.iniciar {
     background: #fff;
-    position:absolute;
-    left:50%;
-    top:10%;
-    cursor:pointer;
-    font-size: 30px;
-    padding: 10px;
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translate(-50%, -50%);
     padding: 10px 20px;
     border-radius: 20px;
-    transform: translate(-50%,-50%)
+    cursor:pointer;
 }
-.x{
-    background: transparent;
+.perdiste{
+    background: #ffffff6e;
+    color: #fff;
+    height: 450px;
     width: 100%;
-    height:100%;
+    text-align: center;
     position: absolute;
-    top: 0px;
-    left:0px;
-    z-index: 1000;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    font-size: 50px;
+}
+.none{
+    display:none;
+}
+.bloqueo{
+    width: 100%;
+    height: 450px;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }

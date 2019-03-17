@@ -1,103 +1,133 @@
-var verde;
-var azul;
-var amarillo;
-var rojo;
-var puntos;
+
+let verde,
+    azul,
+    amarillo,
+    rojo,
+    random,
+    serie = [],
+    totalColores = 0,
+    numColores = 0,
+    nivel = 0,
+    tiempoTotalSerie;
 
 setTimeout(() => {
-    verde = document.getElementById("verde");
-    azul = document.getElementById("azul");
-    amarillo = document.getElementById("amarillo");
-    rojo = document.getElementById("rojo");
-    puntos = document.getElementById("puntos_Totales");
-        
-    console.log(colores)
+    verde = document.getElementById("Verde"),
+    azul = document.getElementById("Azul"),
+    amarillo = document.getElementById("Amarillo"),
+    rojo = document.getElementById("Rojo");
 }, 0);
 
-function empezar(id) {
+function iniciar(id){
     document.getElementById(id).style.display = "none";
-    document.getElementById("x").className = "x";
+    document.getElementById("bloqueo").className = "bloqueo";
     setTimeout(() => {
-        random();
-    }, 500);
-    
-}
-
-var colores = [];
-
-var num_Colores = 0;
-
-function random() {
-
-    var aleatorio = Math.round(Math.random() * 3);
-    colores[num_Colores] = aleatorio;
-    num_Colores++;
-console.log(aleatorio);
-
-    if (aleatorio == 0) {
-        verde.style.border = "5px solid #fff";
-        setTimeout(() => {
-            verde.style.border = null;
-        }, 1000);
-    }
-    if (aleatorio == 1) {
-        azul.style.border = "5px solid #fff";
-        setTimeout(() => {
-            azul.style.border = null;
-        }, 1000);
-    }
-    if (aleatorio == 2) {
-        amarillo.style.border = "5px solid #fff";
-        setTimeout(() => {
-            amarillo.style.border = null;
-        }, 1000);
         
-    }
-    if (aleatorio == 3) {
-        rojo.style.border = "5px solid #fff";
+        random = Math.round(Math.random() * 3)
+        serie[numColores] = random;
+        numColores++;
         setTimeout(() => {
-            rojo.style.border = null;
+            document.getElementById("bloqueo").className = "none";
         }, 1000);
+
+        if(random == 0){
+            verde.style.border = "3px solid #fff";
+            setTimeout(() => {
+            verde.style.border = "";                
+            }, 1000);
+        } else if (random == 1) {
+            azul.style.border = "3px solid #fff";
+            setTimeout(() => {
+            azul.style.border = "";                
+            }, 1000);
+        } else if (random == 2) {
+            amarillo.style.border = "3px solid #fff";
+            setTimeout(() => {
+            amarillo.style.border = "";                
+            }, 1000);
+        } else if (random == 3) {
+            rojo.style.border = "3px solid #fff";
+            setTimeout(() => {
+            rojo.style.border = "";                
+            }, 1000);
+        }
         
-    }
-    setTimeout(() => {
-        document.getElementById("x").className = "";
-    }, 2000);
+        console.log(random)
+        console.log(serie)
 
-}
 
-var idOpcion; 
-
-function pregunta(id){
-
-    if (id == "verde") {
-        idOpcion = 0;
-    }else if (id == "azul") {
-        idOpcion = 1;
-    }else if (id == "amarillo") {
-        idOpcion = 2;
-    }else if (id == "rojo") {
-        idOpcion = 3;
-    }
-
-    console.log(idOpcion);
-
-    if (idOpcion == colores[num_Colores - 1]) {
-        console.log("es el mismo color")
-        puntos.innerHTML = num_Colores;
-        reiniciar_bucle();
-    }else{
-        console.log("No es el mismo")
-        puntos.innerHTML = "";
-
-    }
-
-}
-
-function reiniciar_bucle() {
-
-    setTimeout(() => {
-        random();
     }, 1000);
-    
+
+    if(document.getElementById("perdiste").className == "perdiste"){
+        document.getElementById("perdiste").className = "none";
+    }
+
+
+}
+
+
+function prueba(id){
+
+    console.log(id);
+
+    if (id == serie[numColores - 1]) {
+        document.getElementById("puntos_Totales").innerHTML = nivel + 1;
+        nivel++;
+        document.getElementById("bloqueo").className = "bloqueo";
+        setTimeout(() => {
+            mostrarSerie();
+        }, 1000);
+    }else{
+        document.getElementById("iniciar").style.display = "block";
+        document.getElementById("puntos_Totales").innerHTML = "";
+        nivel = 0;
+        document.getElementById("perdiste").className = "perdiste";
+        serie = [];
+        numColores = 0;
+
+    }
+
+}
+
+
+function mostrarSerie() {
+        random = Math.round(Math.random() * 3)
+        serie[numColores] = random;
+        console.log(serie);
+
+        document.getElementById("bloqueo").className = "bloqueo";
+
+        setTimeout(() => {
+            document.getElementById("bloqueo").className = "none";
+        }, (numColores * 2) * 1300);
+
+        for (let i = 0; i < numColores + 1; i++) {
+
+            
+            setTimeout(() => {
+
+                        if (serie[i] == 0) {
+                            verde.style.border = "3px solid #fff";
+                            setTimeout(() => {
+                                verde.style.border = "";
+                            }, 1000);
+                        } else if (serie[i] == 1) {
+                            azul.style.border = "3px solid #fff";
+                            setTimeout(() => {
+                                azul.style.border = "";
+                            }, 1000);
+                        } else if (serie[i] == 2) {
+                            amarillo.style.border = "3px solid #fff";
+                            setTimeout(() => {
+                                amarillo.style.border = "";
+                            }, 1000);
+                        } else if (serie[i] == 3) {
+                            rojo.style.border = "3px solid #fff";
+                            setTimeout(() => {
+                                rojo.style.border = "";
+                            }, 1000);
+                        }
+
+            },i * 1300);
+
+        }
 }
