@@ -71,7 +71,7 @@ function prueba(id){
         document.getElementById("puntos_Totales").innerHTML = nivel + 1;
         nivel++;
         setTimeout(() => {
-            sigNivel();
+            mostrarSerie(1);
         }, 1000);
     }else{
         document.getElementById("iniciar").style.display = "block";
@@ -83,30 +83,38 @@ function prueba(id){
     }
 
 }
-function sigNivel() {
-    random = Math.round(Math.random() * 3)
-    serie[numColores] = random;
-    numColores++;
 
-    if (random == 0) {
-        verde.style.border = "3px solid #fff";
-        setTimeout(() => {
-            verde.style.border = "";
-        }, 1000);
-    } else if (random == 1) {
-        azul.style.border = "3px solid #fff";
-        setTimeout(() => {
-            azul.style.border = "";
-        }, 1000);
-    } else if (random == 2) {
-        amarillo.style.border = "3px solid #fff";
-        setTimeout(() => {
-            amarillo.style.border = "";
-        }, 1000);
-    } else if (random == 3) {
-        rojo.style.border = "3px solid #fff";
-        setTimeout(() => {
-            rojo.style.border = "";
-        }, 1000);
-    }
+function mostrarSerie() {
+        random = Math.round(Math.random() * 3)
+        serie[numColores] = random;
+        console.log(serie);
+        for (let i = 0; i < numColores + 1; i++) {
+            
+            setTimeout(() => {
+
+                        if (serie[i] == 0) {
+                            verde.style.border = "3px solid #fff";
+                            setTimeout(() => {
+                                verde.style.border = "";
+                            }, 1000);
+                        } else if (serie[i] == 1) {
+                            azul.style.border = "3px solid #fff";
+                            setTimeout(() => {
+                                azul.style.border = "";
+                            }, 1000);
+                        } else if (serie[i] == 2) {
+                            amarillo.style.border = "3px solid #fff";
+                            setTimeout(() => {
+                                amarillo.style.border = "";
+                            }, 1000);
+                        } else if (serie[i] == 3) {
+                            rojo.style.border = "3px solid #fff";
+                            setTimeout(() => {
+                                rojo.style.border = "";
+                            }, 1000);
+                        }
+
+            }, i * 1300);
+            
+        }
 }
