@@ -1,4 +1,4 @@
-var verde,
+let verde,
     azul,
     amarillo,
     rojo,
@@ -6,7 +6,8 @@ var verde,
     serie = [],
     totalColores = 0,
     numColores = 0,
-    nivel = 0;
+    nivel = 0,
+    tiempoTotalSerie;
 
 setTimeout(() => {
     verde = document.getElementById("Verde"),
@@ -70,8 +71,9 @@ function prueba(id){
     if (id == serie[numColores - 1]) {
         document.getElementById("puntos_Totales").innerHTML = nivel + 1;
         nivel++;
+        document.getElementById("bloqueo").className = "bloqueo";
         setTimeout(() => {
-            mostrarSerie(1);
+            mostrarSerie();
         }, 1000);
     }else{
         document.getElementById("iniciar").style.display = "block";
@@ -84,11 +86,20 @@ function prueba(id){
 
 }
 
+
 function mostrarSerie() {
         random = Math.round(Math.random() * 3)
         serie[numColores] = random;
         console.log(serie);
+
+        document.getElementById("bloqueo").className = "bloqueo";
+
+        setTimeout(() => {
+            document.getElementById("bloqueo").className = "none";
+        }, (numColores * 2) * 1300);
+
         for (let i = 0; i < numColores + 1; i++) {
+
             
             setTimeout(() => {
 
@@ -114,7 +125,7 @@ function mostrarSerie() {
                             }, 1000);
                         }
 
-            }, i * 1300);
-            
+            },i * 1300);
+
         }
 }
