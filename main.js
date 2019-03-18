@@ -5,6 +5,8 @@ let verde,
     rojo,
     random,
     serie = [],
+    numSerie = serie.length,
+    numTotalSerie = 0,
     totalColores = 0,
     numColores = 0,
     nivel = 0,
@@ -20,6 +22,9 @@ setTimeout(() => {
 function iniciar(id){
     document.getElementById(id).style.display = "none";
     document.getElementById("bloqueo").className = "bloqueo";
+    serie = [];
+    numTotalSerie = 0;
+    numColores = 0;
     setTimeout(() => {
         
         random = Math.round(Math.random() * 3)
@@ -51,8 +56,10 @@ function iniciar(id){
             }, 1000);
         }
         
-        console.log(random)
-        console.log(serie)
+        numSerie = serie.length;
+        console.log(numSerie);
+        console.log(random);
+        console.log(serie);
 
 
     }, 1000);
@@ -64,44 +71,51 @@ function iniciar(id){
 
 }
 
-let nivelesTotales = 1;
 function prueba(id){
 
-    
+    console.log(numSerie);
+    console.log(numTotalSerie);
     console.log(id);
+            if (id == serie[numTotalSerie]) {
+                numTotalSerie++;
 
-    if (id == serie[numColores - 1]) {
-        document.getElementById("puntos_Totales").innerHTML = nivel + 1;
-        nivel++;
-        if (nivelesTotales == numColores) {
-            document.getElementById("bloqueo").className = "bloqueo";
-            setTimeout(() => {
-                mostrarSerie();
-            }, 1000);
-        }
-    }else{
-        document.getElementById("iniciar").style.display = "block";
-        document.getElementById("puntos_Totales").innerHTML = "";
-        nivel = 0;
-        document.getElementById("perdiste").className = "perdiste";
-        serie = [];
-        numColores = 0;
+                if (numTotalSerie == numSerie) {
+                    document.getElementById("bloqueo").className = "bloqueo";
+                    document.getElementById("puntos_Totales").innerHTML = nivel + 1;
+                    nivel++;
+                    setTimeout(() => {
+                        mostrarSerie();
+                    }, 1000);
+                }
 
-    }
+
+            } else {
+                document.getElementById("iniciar").style.display = "block";
+                document.getElementById("puntos_Totales").innerHTML = "";
+                nivel = 0;
+                document.getElementById("perdiste").className = "perdiste";
+                serie = [];
+                numTotalSerie = 0;
+                console.log("Perdiste")
+                console.log(id);
+            }
 
 }
 
 
 function mostrarSerie() {
-        random = Math.round(Math.random() * 3)
-        serie[numColores] = random;
+
+    random = Math.round(Math.random() * 3)
+    serie[numColores] = random;
+    numSerie = serie.length;
+    numTotalSerie = 0;
         console.log(serie);
 
         document.getElementById("bloqueo").className = "bloqueo";
 
         setTimeout(() => {
             document.getElementById("bloqueo").className = "none";
-        }, (numColores * 2) * 1300);
+        }, ((numColores * 2) * 1000)+ 300);
 
         numColores++;
 
@@ -130,10 +144,9 @@ function mostrarSerie() {
                                 rojo.style.border = "";
                             }, 1000);
                         }
-
             },i * 1300);
 
         }
-
         
 }
+
