@@ -36,23 +36,31 @@ function iniciar(id){
 
         if(random == 0){
             verde.style.border = "3px solid #fff";
+            verde.style.filter = "grayscale(.4)";
             setTimeout(() => {
             verde.style.border = "";                
+            verde.style.filter = "";                
             }, 1000);
         } else if (random == 1) {
             azul.style.border = "3px solid #fff";
+            azul.style.filter = "grayscale(.4)";
             setTimeout(() => {
             azul.style.border = "";                
+            azul.style.filter = "";                
             }, 1000);
         } else if (random == 2) {
             amarillo.style.border = "3px solid #fff";
+            amarillo.style.filter = "grayscale(.4)";
             setTimeout(() => {
             amarillo.style.border = "";                
+            amarillo.style.filter = "";                
             }, 1000);
         } else if (random == 3) {
             rojo.style.border = "3px solid #fff";
+            rojo.style.filter = "grayscale(.4)";
             setTimeout(() => {
             rojo.style.border = "";                
+            rojo.style.filter = "";                
             }, 1000);
         }
         
@@ -72,6 +80,30 @@ function iniciar(id){
 }
 
 function prueba(id){
+
+    if (id == 0) {
+        document.getElementById("Verde").className = "sinclick_v";
+        setTimeout(() => {
+            document.getElementById("Verde").className = "simon_Verde";
+        }, 0);
+    }else if (id == 1) {
+        document.getElementById("Azul").className = "sinclick_a";
+        setTimeout(() => {
+            document.getElementById("Azul").className = "simon_Azul";
+        }, 0);
+    }else if (id == 2) {
+        document.getElementById("Amarillo").className = "sinclick_am";
+        setTimeout(() => {
+            document.getElementById("Amarillo").className = "simon_Amarillo";
+        }, 0);
+    }else if (id ==3) {
+        document.getElementById("Rojo").className = "sinclick_r";
+        setTimeout(() => {
+            document.getElementById("Rojo").className = "simon_Rojo";
+        }, 0);
+    }
+
+
 
     console.log(numSerie);
     console.log(numTotalSerie);
@@ -115,7 +147,7 @@ function mostrarSerie() {
 
         setTimeout(() => {
             document.getElementById("bloqueo").className = "none";
-        }, ((numColores * 2) * 1000)+ 300);
+        }, ((numColores * 2) * 1000)+ 100);
 
         numColores++;
 
@@ -125,23 +157,31 @@ function mostrarSerie() {
 
                         if (serie[i] == 0) {
                             verde.style.border = "3px solid #fff";
+                            verde.style.filter = "grayscale(.4)";
                             setTimeout(() => {
                                 verde.style.border = "";
+                                verde.style.filter = "";
                             }, 1000);
                         } else if (serie[i] == 1) {
                             azul.style.border = "3px solid #fff";
+                            azul.style.filter = "grayscale(.4)";
                             setTimeout(() => {
                                 azul.style.border = "";
+                                azul.style.filter = "";
                             }, 1000);
                         } else if (serie[i] == 2) {
                             amarillo.style.border = "3px solid #fff";
+                            amarillo.style.filter = "grayscale(.4)";
                             setTimeout(() => {
                                 amarillo.style.border = "";
+                                amarillo.style.filter = "";
                             }, 1000);
                         } else if (serie[i] == 3) {
                             rojo.style.border = "3px solid #fff";
+                            rojo.style.filter = "grayscale(.4)";
                             setTimeout(() => {
                                 rojo.style.border = "";
+                                rojo.style.filter = "";
                             }, 1000);
                         }
             },i * 1300);
