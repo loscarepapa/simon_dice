@@ -64,18 +64,21 @@ function iniciar(id){
 
 }
 
-
+let nivelesTotales = 1;
 function prueba(id){
 
+    
     console.log(id);
 
     if (id == serie[numColores - 1]) {
         document.getElementById("puntos_Totales").innerHTML = nivel + 1;
         nivel++;
-        document.getElementById("bloqueo").className = "bloqueo";
-        setTimeout(() => {
-            mostrarSerie();
-        }, 1000);
+        if (nivelesTotales == numColores) {
+            document.getElementById("bloqueo").className = "bloqueo";
+            setTimeout(() => {
+                mostrarSerie();
+            }, 1000);
+        }
     }else{
         document.getElementById("iniciar").style.display = "block";
         document.getElementById("puntos_Totales").innerHTML = "";
@@ -100,8 +103,9 @@ function mostrarSerie() {
             document.getElementById("bloqueo").className = "none";
         }, (numColores * 2) * 1300);
 
-        for (let i = 0; i < numColores + 1; i++) {
+        numColores++;
 
+        for (let i = 0; i < numColores; i++) {
             
             setTimeout(() => {
 
@@ -130,4 +134,6 @@ function mostrarSerie() {
             },i * 1300);
 
         }
+
+        
 }
